@@ -6,6 +6,6 @@ const modelo = mongoose.Schema({
     senha:String
 })
 
-const usuarios = mongoose.model('usuarios', modelo)
+const usuarios = mongoose.model('usuarios',modelo)
 
-module.exports = usuarios 
+module.exports = usuarios

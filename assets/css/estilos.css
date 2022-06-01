@@ -1,3 +1,6 @@
-input{
+input,i,select{
     margin-bottom: 10px;
+}
+textarea{
+    resize: none;
 }

@@ -5,10 +5,11 @@ const modelo = mongoose.Schema({
     tipo:String,
     entrega:String,
     disciplina:String,
-    intrucoes:String,
-    usuario:String
+    instrucoes:String,
+    usuario:String,
+    titulo:String
 })
 
-const atividades = mongoose.model('atividades', modelo)
+const atividades = mongoose.model('atividades',modelo)
 
 module.exports = atividades

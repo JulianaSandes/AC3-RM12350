@@ -1,11 +1,14 @@
-//importar o pacote express 
+//importar o pacate express
 const express = require('express')
 //executar o express
 const app = express()
-//definir a porta para o servidor 
+//definir a porta para o servidor
 const porta = process.env.PORT || 3030
 
 //definir a pasta dos arquivos de css e imagens
 app.use(express.static('./assets'))
+//deifinir o express como body parse
+app.use(express.urlencoded({extended:false}))
+
 //exportar app e porta
-module.exports = {app, porta}
+module.exports = {app,porta}

@@ -1,6 +1,6 @@
 module.exports = (app)=>{
-    //rota do tipo render
-    app.get('/', (req,res)=>{
+    //rota do tipo send
+    app.get('/',(req,res)=>{
         res.render('index.ejs')
     })
 }

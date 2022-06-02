@@ -1,3 +1,5 @@
+const atividades = require('../models/atividades')
+
 module.exports = (app)=>{
     //abrir o arquivo login.ejs
     app.get('/login',(req,res)=>{
@@ -21,6 +23,9 @@ module.exports = (app)=>{
         if(!comparar){
             return res.send("Senha Inválida!")
         }
-        res.render("atividades.ejs",{nome:verificar.nome,id:verificar._id})
+        //buscar as atividades do usuário
+        const atividade = require("../models/atividades")
+        var buscar = await atividades.find({usuario:verificar._id})
+        res.render("atividades.ejs",{lista:buscar,nome:verificar.nome,id:verificar._id})
     })
 }

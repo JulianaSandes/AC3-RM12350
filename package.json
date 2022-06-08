@@ -1,5 +1,5 @@
 {
-  "name": "todo_list",
+  "name": "inw-1105-22",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
@@ -13,8 +13,6 @@
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
-    "bootstrap": "^5.1.3",
-    "cons": "0.0.2",
     "consign": "^0.1.6",
     "ejs": "^3.1.8",
     "express": "^4.18.1",

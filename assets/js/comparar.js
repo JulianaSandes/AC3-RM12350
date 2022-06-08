@@ -9,5 +9,5 @@ function comparar(){
     }
 }
 
-senha.onchange = comparar
-senha2.onkeyup = comparar
+senha.onchange = comparar 
+senha2.onkeyup = comparar  

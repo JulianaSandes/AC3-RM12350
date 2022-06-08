@@ -4,3 +4,9 @@ input,i,select{
 textarea{
     resize: none;
 }
+
+.logoff{
+    position: fixed;
+    right: 0;
+    cursor: pointer;
+}

@@ -32,20 +32,37 @@ module.exports = (app) =>{
         var atividades = require('../models/atividades')
         
         var dadosUser = await usuarios.findOne({_id:user})
-        var dadosAtividades = await atividades.find({usuario:user})
+        var dadosAberto = await atividades.find({usuario:user,status:"0"}).sort({data:1})
+        var dadosEntregue = await atividades.find({usuario:user,status:"1"}).sort({data:1})
+        var dadosExcluir = await atividades.find({usuario:user,status:"2"}).sort({data:1})
 
-        res.render('atividades.ejs',{nome:dadosUser.nome,id:dadosUser._id,lista:dadosAtividades})
+        res.render('accordion.ejs',{nome:dadosUser.nome,id:dadosUser._id,dadosAberto,dadosEntregue,dadosExcluir})
+
+        //res.render('atividades.ejs',{nome:dadosUser.nome,id:dadosUser._id,lista:dadosAtividades})
     })
 
     app.get('/excluir',async(req,res)=>{
         //qual documento será excluído da collection atividades?
         var doc = req.query.id
         //excluir o documento 
-        var excluir = await atividades.findOneAndDelete({
-            _id:doc
-        })
+        var alterar = await atividades.findOneAndUpdate(
+            {_id:doc},
+            {status:"2"}
+        )
         //voltar para a lista de atividades
-        res.redirect('/atividades?id='+excluir.usuario)
+        res.redirect('/atividades?id='+alterar.usuario)
+        
+    })
+    app.get('/entregue',async(req,res)=>{
+        //qual documento será excluído da collection atividades?
+        var doc = req.query.id
+        //excluir o documento 
+        var entregue = await atividades.findOneAndUpdate(
+            {_id:doc},
+            {status:"1"}
+        )
+        //voltar para a lista de atividades
+        res.redirect('/atividades?id='+entregue.usuario)
         
     })
 }
